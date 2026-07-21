@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
@@ -16,14 +16,20 @@ export class UsersController {
     }
 
     // All static routes should be defined before dynamic routes
+    /**
     @Get('interns') // GET /users/interns
     findAllInterns() {
         return []
-    }
+    } */
     
     @Get(':id') // GET /users/:id
     findOne(@Param('id') id: string) {
         return { id }
+    }
+
+    @Post() // POST /users
+    create(@Body() user: {}) {
+        return user
     }
 }
 
