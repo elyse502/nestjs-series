@@ -1,7 +1,15 @@
 <details>
     <summary><b>Commands to use while building</b></summary>
 
-```console
+```groovy
+clement@Clements-MacBook-Pro nestjs-series % npm i -g @nestjs/cli
+
+
+added 211 packages in 29s
+
+39 packages are looking for funding
+  run `npm fund` for details
+clement@Clements-MacBook-Pro nestjs-series %
 PS C:\My-Stuffs\sprint-7\nestjs-series\lesson01> nest g module users
 CREATE src/users/users.module.ts (86 bytes)
 UPDATE src/app.module.ts (322 bytes)
