@@ -1,6 +1,8 @@
 <details>
     <summary><b>Prisma + PostgreSQL + Neon Setup Guide</b></summary>
 
+Reference - [Link](https://youtu.be/8_X0nSrzrCw?t=6147)
+
 # Prisma + PostgreSQL + Neon Setup Guide
 
 > A complete step-by-step guide for initializing Prisma with a PostgreSQL database hosted on Neon.
