@@ -1346,3 +1346,206 @@ It created:
 This scaffold provides a solid foundation for building a maintainable, modular REST API. The next step is typically to connect the service to a database (such as PostgreSQL via Prisma), replace the placeholder implementations with real business logic, and add validation, authentication, and authorization as needed.
 
 </details>
+
+<br/><hr/><br/>
+
+<details>
+  <summary><b>Environment Variables Setup</b></summary>
+
+# 🔐 Environment Setup
+
+This project requires a few environment variables to establish a connection with a PostgreSQL database through **Prisma ORM**.
+
+For security reasons, this repository **does not include any sensitive credentials or connection strings**. You will need to create your own database and provide your own environment variables before running the application.
+
+---
+
+# 📋 Prerequisites
+
+Before configuring the environment variables, make sure you have:
+
+- Node.js installed
+- A PostgreSQL database
+- Prisma ORM installed (included in project dependencies)
+
+You can use any PostgreSQL provider, including:
+
+- Neon
+- Supabase
+- Railway
+- Render
+- Local PostgreSQL
+- PostgreSQL running in Docker
+
+---
+
+# 📁 Create the Environment File
+
+Navigate to the lesson that requires a database (such as **lesson04** or **lesson05**) and create a new file named:
+
+```text
+.env
+```
+
+Alternatively, you can copy the example file if one exists:
+
+```bash
+cp .env.example .env
+```
+
+---
+
+# 📝 Required Environment Variables
+
+Add the following variables to your `.env` file.
+
+```env
+# Prisma Database Connection
+
+# Primary database connection (recommended pooled connection)
+DATABASE_URL=""
+
+# Direct database connection (unpooled)
+DATABASE_URL_UNPOOLED=""
+```
+
+Replace the empty values with your own PostgreSQL connection strings.
+
+---
+
+# 📖 Variable Reference
+
+| Variable                | Required | Description                                                                                                                                                                    |
+| ----------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `DATABASE_URL`          |    ✅    | The primary PostgreSQL connection string used by Prisma Client during normal application runtime. A pooled connection is recommended when supported by your database provider. |
+| `DATABASE_URL_UNPOOLED` |    ✅    | A direct PostgreSQL connection used by Prisma for migrations or operations that require an unpooled connection.                                                                |
+
+---
+
+# ⚙ Prisma Configuration
+
+If you're using a custom `prisma.config.ts` file, ensure that environment variables are loaded before Prisma initializes.
+
+Example:
+
+```ts
+import 'dotenv/config';
+```
+
+Without loading your environment variables, Prisma may not be able to access your database connection settings.
+
+---
+
+# 🚀 Running the Application
+
+After configuring your `.env` file, install the project dependencies:
+
+```bash
+npm install
+```
+
+Generate the Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+Run any pending database migrations:
+
+```bash
+npx prisma migrate dev
+```
+
+Finally, start the application:
+
+```bash
+npm run start:dev
+```
+
+---
+
+# 🔒 Security Best Practices
+
+To keep your project secure:
+
+- Never commit your `.env` file to Git.
+- Keep your database credentials private.
+- Use different credentials for development and production environments.
+- Rotate credentials if they are ever exposed.
+- Verify that `.env` is included in your `.gitignore`.
+
+---
+
+# 📄 Example Project Structure
+
+```text
+lesson04/
+│
+├── prisma/
+├── src/
+├── .env
+├── .env.example
+├── package.json
+└── prisma.config.ts
+```
+
+---
+
+# ❓ Troubleshooting
+
+## Prisma cannot find the environment variables
+
+Ensure your `.env` file exists in the project root and that your Prisma configuration loads it correctly.
+
+Example:
+
+```ts
+import 'dotenv/config';
+```
+
+---
+
+## Database connection failed
+
+Verify that:
+
+- Your PostgreSQL server is running.
+- Your connection string is correct.
+- Your username and password are valid.
+- SSL settings match your database provider's requirements.
+- The database is accessible from your current network.
+
+---
+
+## Prisma Client is outdated
+
+If you modify your Prisma schema, regenerate the Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+---
+
+# 📚 Additional Resources
+
+For more information, consult the official documentation:
+
+- Prisma ORM Documentation
+- Prisma Environment Variables Guide
+- PostgreSQL Documentation
+- NestJS Documentation
+
+---
+
+# 🤝 Contributing
+
+If you notice missing environment variables or setup instructions, feel free to open an issue or submit a pull request to help improve the documentation.
+
+---
+
+# 📜 License
+
+This documentation is provided as part of the project and follows the same license as the repository.
+
+</details>
