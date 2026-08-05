@@ -28,6 +28,7 @@ export class EmployeesController {
     return this.employeesService.findAll(role);
   }
 
+  @Throttle({ short: { ttl: 1000, limit: 1 } })
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.employeesService.findOne(+id);
