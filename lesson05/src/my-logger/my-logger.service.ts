@@ -13,12 +13,12 @@ export class MyLoggerService extends ConsoleLogger {
     }).format(new Date())}\t${entry}\n`;
 
     try {
-      if (!fs.existsSync(path.join(__dirname, '..', '..', 'logs'))) {
-        await fsPromises.mkdir(path.join(__dirname, '..', '..', 'logs'));
-      }
+      const logsDir = path.join(process.cwd(), 'logs');
+
+      await fsPromises.mkdir(logsDir, { recursive: true });
 
       await fsPromises.appendFile(
-        path.join(__dirname, '..', '..', 'logs', 'myLogFile.log'),
+        path.join(logsDir, 'myLogFile.log'),
         formattedEntry,
       );
     } catch (e) {
