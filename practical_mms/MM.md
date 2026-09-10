@@ -1,4 +1,6 @@
-### Question 1 —
+# Covered Questions From This [List](https://app.notion.com/p/Practical-NestJS-exercises-4-09-09-26-3d653d722d1d803c8bcde59b4f4a2881)
+
+## Question 1 —
 
 ```tsx
 import { Controller, Post, Body } from '@nestjs/common';
@@ -23,7 +25,7 @@ Write down the issue before fix it
 
 ---
 
-## Issues found out:
+### Issues found out:
 
 > No separation of concerns. User controller is handling business logic instead of http alone! => Here we're supposed to create a service to handle the business logic.
 
@@ -31,7 +33,7 @@ Write down the issue before fix it
 
 ---
 
-Question 2
+## Question 2 —
 
 ```tsx
 // payments.module.ts
@@ -72,7 +74,7 @@ Point out the issue and how you'd fix it.
 
 ---
 
-Question 3
+## Question 3 —
 
 ```tsx
 import { Controller, Post, Body } from '@nestjs/common';
@@ -93,7 +95,7 @@ export class AuthController {
 
 Point out the issues in this code and how you'd fix them.
 
-## Issues found out:
+### Issues found out:
 
 > Business logic is part of the controller
 >
@@ -103,7 +105,7 @@ Point out the issues in this code and how you'd fix them.
 >
 > returns the error instead of throwing it
 
-## Fixes
+### Fixes
 
 > Create auth service
 >
